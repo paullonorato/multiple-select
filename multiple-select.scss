@@ -1,0 +1,179 @@
+/**
+ * @author Paullo Norato <contato@paullonorato.com.br>
+ */
+
+ .ms-parent{
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+.ms-choice{
+    padding: 0;
+    display: block;
+    height: 26px;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    cursor: pointer;
+    color: #444;
+    text-align: left;
+    text-decoration: none;
+    line-height: 26px;
+    white-space: nowrap;
+
+    &.disabled{
+        border: 1px solid #ddd;
+        background-image: none;
+        background-color: #f4f4f4;
+        cursor: default;
+    }
+
+    span{
+        padding-left: 8px;
+        display: block;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &.placeholder{
+            color: #999;
+        }
+    }
+
+    div{
+        width: 20px;
+        height: 25px;
+        background: url('multiple-select.png') right top no-repeat;
+        position: absolute;
+        top: 0;
+        right: 0;
+        
+        &.open{
+            background: url('multiple-select.png') left top no-repeat;
+        }
+    }
+}
+
+.ms-drop{
+    margin-top: -1px;
+    padding: 0;
+    display: none;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    background: #fff;
+    position: absolute;
+    z-index: 1000;
+    color: #000;
+
+    &.bottom{
+        -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
+        -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
+        box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
+        top: 100%;
+    }
+
+    &.top{
+        -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
+        -moz-box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
+        box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
+        bottom: 100%;
+    }
+
+    ul{
+        margin: 0;
+        padding: 5px 8px;
+        overflow: auto;
+        
+        li{
+            display: list-item;
+            background-image: none;
+            position: static;
+            list-style: none;
+
+            .disabled{
+                opacity: .35;
+                filter: Alpha(Opacity=35);
+            }
+        }
+
+        &.multiple{
+            display: block;
+            float: left;
+
+            label{
+                display: block;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                &.optgroup{
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &.group{
+            clear: both;
+        }
+    }
+
+    input[type="checkbox"]{
+        vertical-align: middle;
+    }
+
+    .ms-no-results{
+        display: none;
+    }
+}
+
+.ms-search{
+    margin: 0;
+    padding: 4px;
+    display: inline-block;
+    width: 100%;
+    min-height: 26px;
+    position: relative;
+    z-index: 10000;
+    white-space: nowrap;
+
+    input{
+        margin: 0;
+        padding: 0 20px 0 5px;
+        width: 100%;
+        min-height: 24px;
+        height: auto !important;
+        outline: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: 1px solid #aaa;
+        background: #fff url('multiple-select.png') no-repeat 100% -22px;
+        background: url('multiple-select.png') no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+        background: url('multiple-select.png') no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+        background: url('multiple-select.png') no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+        background: url('multiple-select.png') no-repeat 100% -22px, -ms-linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+        background: url('multiple-select.png') no-repeat 100% -22px, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        
+        font-family: sans-serif;
+        font-size: 1em;
+    }
+}
+
+.ms-search, .ms-search input{
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
